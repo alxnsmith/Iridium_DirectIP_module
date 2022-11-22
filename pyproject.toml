@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "smp-tcp-module"
+version = "0.1.0"
+description = ""
+authors = ["alxnsmith <alx.n.smith@ya.ru>"]
+readme = "README.md"
+packages = [{include = "smp_tcp_module"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+iridiumsbd = "^0.0.8"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]

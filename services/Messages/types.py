@@ -1,0 +1,1 @@
+BytesDict = dict[str, bytes]
