@@ -1,5 +1,10 @@
 __pycache__/
 .env
+config.ini
+temp
+*.sbd
+*.log
+
 
 # Unit test / coverage reports
 htmlcov/
