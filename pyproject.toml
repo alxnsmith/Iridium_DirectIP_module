@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "iridium"
-version = "0.2.0"
+version = "0.3.1"
 description = ""
 authors = ["alxnsmith <alx.n.smith@ya.ru>"]
 readme = "README.md"
