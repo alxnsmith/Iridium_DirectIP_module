@@ -1,4 +1,4 @@
-from services.Messages import MT_Message
+from iridium.services.Messages import MT_Message
 
 test_message = bytes().fromhex(
     '01002D4100154D73673133303030333430313031323334353000004213494D4549333030303334303130313233343530')

@@ -1,7 +1,6 @@
-from collections.abc import Callable
 import socket
+from collections.abc import Callable
 from datetime import datetime
-from typing import Optional
 
 
 class TCP_Server:

@@ -1,4 +1,4 @@
-from services.Messages import MO_Message
+from iridium.services.Messages import MO_Message
 
 
 test_message = bytes().fromhex(
