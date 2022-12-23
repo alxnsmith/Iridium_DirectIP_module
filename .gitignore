@@ -4,6 +4,7 @@ config.ini
 temp
 *.sbd
 *.log
+dist/
 
 
 # Unit test / coverage reports
