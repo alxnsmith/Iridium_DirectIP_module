@@ -38,19 +38,19 @@ if __name__ == "__main__":
                 else:
                     empty_counter = 0
                     data += received
-                    print('Received: ', received.decode())
+                    print('Received: ', received)
 
             if data != b'':
                 # Filename with datetime as prefix
                 with open('data_log.txt', 'ab') as f:
-                    to_write = '='*80 + '\n'
-                    to_write += datetime.now().strftime("%Y.%m.%d_%H:%M:%S")
-                    to_write += '\n'
-                    to_write += "IP: " + address[0] + '\n'
-                    to_write += '\n'
-                    to_write += data.decode()
-                    to_write += '\n'
-                    f.write(to_write.encode())
+                    to_write = b'='*80 + b'\n'
+                    to_write += datetime.now().strftime("%Y.%m.%d_%H:%M:%S").encode()
+                    to_write += b'\n'
+                    to_write += ("IP: " + address[0] + '\n').encode()
+                    to_write += b'\n'
+                    to_write += data
+                    to_write += b'\n'
+                    f.write(to_write)
 
         except:
             client.close()

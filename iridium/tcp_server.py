@@ -49,7 +49,7 @@ class TCP_Server:
             if received != b'':
                 empty_counter = 0
                 data += received
-                print('Received: ', received.decode())
+                print('Received: ', received)
             else:
                 empty_counter += 1
                 if empty_counter >= empty_to_close:
@@ -63,14 +63,14 @@ if __name__ == "__main__":
     def test_handler(data: bytes, address: tuple, _):
         # Filename with datetime as prefix
         with open('data.log', 'ab') as f:
-            to_write = '='*80 + '\n'
-            to_write += datetime.now().strftime("%Y.%m.%d_%H:%M:%S")
-            to_write += '\n'
-            to_write += "IP: " + address[0] + '\n'
-            to_write += '\n'
-            to_write += data.decode()
-            to_write += '\n'
-            f.write(to_write.encode())
+            to_write = ('='*80 + '\n').encode()
+            to_write += datetime.now().strftime("%Y.%m.%d_%H:%M:%S").encode()
+            to_write += b'\n'
+            to_write += ("IP: " + address[0] + '\n').encode()
+            to_write += b'\n'
+            to_write += data
+            to_write += b'\n'
+            f.write(to_write)
             _.sendall(b'OK')
 
     TCP_Server("", 62372).start(test_handler)
