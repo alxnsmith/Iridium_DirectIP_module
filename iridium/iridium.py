@@ -7,9 +7,7 @@ class Iridium:
     Mail = Mail
     TCP_Server = TCP_Server
 
-    def __init__(self, config):
-        self.config = config
-
-    def serve(self, handler: TCP_Server.HANDLER_TYPE):
-        server = TCP_Server(self.config['host'], self.config['port'])
+    @staticmethod
+    def serve(host: str, port: int,  handler: TCP_Server.HANDLER_TYPE):
+        server = TCP_Server(host, port)
         server.start(handler)

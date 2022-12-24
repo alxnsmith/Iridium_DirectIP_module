@@ -10,7 +10,7 @@ class TCP_Server:
         socket.SocketType,
     ], None]
 
-    def __init__(self, host, port):
+    def __init__(self, host: str, port: int):
         self.host = host
         self.port = port
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -25,7 +25,7 @@ class TCP_Server:
 
     def start(self, handler: HANDLER_TYPE):
         while True:
-            client, address = server.accept()
+            client, address = self.accept()
             with client:
                 print("Connected to: ", address)
                 print("Waiting for data...")
@@ -60,8 +60,6 @@ class TCP_Server:
 
 
 if __name__ == "__main__":
-    server = TCP_Server("", 62372)
-
     def test_handler(data: bytes, address: tuple, _):
         # Filename with datetime as prefix
         with open('data.log', 'ab') as f:
@@ -75,4 +73,4 @@ if __name__ == "__main__":
             f.write(to_write.encode())
             _.sendall(b'OK')
 
-    server.start(test_handler)
+    TCP_Server("", 62372).start(test_handler)
