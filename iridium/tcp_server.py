@@ -1,5 +1,5 @@
 import socket
-from collections.abc import Callable
+from typing import Callable
 from datetime import datetime
 
 
