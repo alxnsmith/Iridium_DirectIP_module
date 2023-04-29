@@ -48,7 +48,7 @@ class MT_Message(AbstractMessage):
             flags=Field(2),
             message_id=Field(1, cls.HEADER_IDS.PAYLOAD.value),
             message_length=Field(
-                1, target_length='message_data', field_type=Field.Type.LENGTH),
+                2, target_length='message_data', field_type=Field.Type.LENGTH),
             message_data=Field(),
         ))
 
