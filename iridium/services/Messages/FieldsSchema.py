@@ -22,7 +22,7 @@ class FieldsSchema:
             raise IndexError(f'Field with name {name} not found')
         return field
 
-    def make_field_value(self, name: str, value: int | str | bytes) -> bytes:
+    def make_field_value(self, name: str, value: int or str or bytes) -> bytes:
         """ Makes bytes value for field """
         try:
             if not isinstance(value, bytes):
@@ -67,7 +67,7 @@ class FieldsSchema:
                 result += field.expected
                 continue
             if field.type == Field.Type.LENGTH:
-                if not isinstance(field.target_length, str | list):
+                if not isinstance(field.target_length, (str, list)):
                     raise ValueError(
                         f"Length field {field_name} must be string or list of strings, got {type(field.target_length)}")
                 raw_value = get_length_field_value(field)

@@ -1,7 +1,7 @@
 from iridium.services.Messages import MT_Message
 
 test_message = bytes().fromhex(
-    '01002D4100154D73673133303030333430313031323334353000004213494D4549333030303334303130313233343530')
+    '01002e4100154d7367313330303033343031303132333435300000420013494d4549333030303334303130313233343530')
 
 
 def test_parse_mt_message():
@@ -12,6 +12,8 @@ def test_parse_mt_message():
     print()
     print('Message value      :', mt_message.make())
     print('Test Message value :', test_message)
+    print('Message value hex      :', mt_message.make().hex())
+    print('Test Message value hex :', test_message.hex())
     assert mt_message.make() == test_message, "Message is not equal to test message"
 
 
@@ -23,4 +25,6 @@ def test_make_mt_message():
     print()
     print('Message value      :', msg.make())
     print('Test Message value :', test_message)
+    print('Message value hex      :', msg.make().hex())
+    print('Test Message value hex :', test_message.hex())
     assert msg.make() == test_message, "Message is not equal to test message"

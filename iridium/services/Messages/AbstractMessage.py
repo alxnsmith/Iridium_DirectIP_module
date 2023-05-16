@@ -6,15 +6,15 @@ from .types import BytesDict
 
 class AbstractMessage:
     """ Abstract message class """
-    _data: bytes | None = None
-    _data_parts: BytesDict | None = None
+    _data: bytes or None = None
+    _data_parts: BytesDict or None = None
     PROTOCOL_REVISION_NUMBER = b'\x01'
 
     class RECEIPT:
         class HEADER_IDS(Enum):
             HEADER = b'\x44'
 
-    def __init__(self, data: bytes | BytesDict):
+    def __init__(self, data: bytes or BytesDict):
         if isinstance(data, dict):
             self._data_parts = data
         else:

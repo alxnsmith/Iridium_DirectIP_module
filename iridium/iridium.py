@@ -15,6 +15,6 @@ class Iridium:
     MT_Confirmation = MT_Confirmation
 
     @staticmethod
-    def serve(host: str, port: int,  handler: TCP_Server.HANDLER_TYPE):
+    def serve(host: str, port: int, handler):
         server = TCP_Server(host, port)
         server.start(handler)

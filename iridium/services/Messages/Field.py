@@ -3,10 +3,10 @@ from enum import Enum
 
 class Field:
     """ Field of data in message """
-    length: int | None
-    target_length: str | list[str] | None
-    expected: bytes | None
-    prefix: bytes | None
+    length: int or None
+    target_length: str or list[str] or None
+    expected: bytes or None
+    prefix: bytes or None
 
     class InvalidFieldException(Exception):
         pass
@@ -17,10 +17,10 @@ class Field:
         LENGTH = 2
 
     def __init__(self,
-                 length: int | None = None,
-                 expected: bytes | None = None,
-                 prefix: bytes | None = None,
-                 target_length: str | list[str] | None = None,
+                 length: int or None = None,
+                 expected: bytes or None = None,
+                 prefix: bytes or None = None,
+                 target_length: str or list[str] or None = None,
                  field_type: Type = Type.BYTES):
         self.length = length
         self.target_length = target_length
@@ -35,7 +35,7 @@ class Field:
             raise ValueError(f"Expected {self.expected}, got {value}")
         return value
 
-    def make_value(self, value: int | str | bytes) -> bytes:
+    def make_value(self, value: int or str or bytes) -> bytes:
         bytes_value = b''
         if self.expected is not None:
             bytes_value = self.expected

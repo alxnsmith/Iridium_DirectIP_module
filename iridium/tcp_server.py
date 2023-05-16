@@ -1,15 +1,8 @@
 import socket
-from collections.abc import Callable
 from datetime import datetime
 
 
 class TCP_Server:
-    HANDLER_TYPE = Callable[[
-        bytes,
-        tuple,
-        socket.SocketType,
-    ], None]
-
     def __init__(self, host: str, port: int):
         self.host = host
         self.port = port
@@ -23,7 +16,7 @@ class TCP_Server:
     def close(self):
         self.socket.close()
 
-    def start(self, handler: HANDLER_TYPE):
+    def start(self, handler):
         while True:
             client, address = self.accept()
             with client:

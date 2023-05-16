@@ -43,7 +43,7 @@ if __name__ == "__main__":
             if data != b'':
                 # Filename with datetime as prefix
                 with open('data_log.txt', 'ab') as f:
-                    to_write = b'='*80 + b'\n'
+                    to_write = b'=' * 80 + b'\n'
                     to_write += datetime.now().strftime("%Y.%m.%d_%H:%M:%S").encode()
                     to_write += b'\n'
                     to_write += ("IP: " + address[0] + '\n').encode()
@@ -51,8 +51,7 @@ if __name__ == "__main__":
                     to_write += data
                     to_write += b'\n'
                     f.write(to_write)
-
-        except:
+        except Exception:
             client.close()
             print("Connection closed")
         finally:
